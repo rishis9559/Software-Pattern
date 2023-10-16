@@ -228,6 +228,10 @@ void Update_account(int n)
 			cout<<"\nPlease! Enter The New Details of account"<<endl;
 			ac.Update();
 			int pos=(-1)*static_cast<int>(sizeof(account));
+			std::size_t size;
+			if (stream.read(reinterpret_cast<char*>(&size), sizeof(size_t)))
+    				return size;
+			return 0;
 			File.seekp(pos,ios::cur);
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
 			cout<<"\n\t\t Record Updated";

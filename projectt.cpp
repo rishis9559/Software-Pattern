@@ -2,6 +2,8 @@
 #include<fstream>
 #include<cctype>
 #include<iomanip>
+#include<string.h>
+#include<stdio.h>
 using namespace std;
  
 // CLASS USED IN PROJECT
@@ -9,7 +11,7 @@ using namespace std;
 class account
 {
 	int Account_No;
-	char Account_Holder_Name[44];
+	std::str Account_Holder_Name[44];
 	char type;
 	int Deposit_Amount;
 public:

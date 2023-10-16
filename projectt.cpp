@@ -190,7 +190,7 @@ void display_sp(int n)
 		cout<<"File could not be open !! Press any Key...";
 		return;
 	}
-	cout<<"\nBALANCE DETAILS\n";
+	cout<<"\nBALANCE DETAILS"<end1;
  
     	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account)))
 	{

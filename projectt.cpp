@@ -313,8 +313,8 @@ void Deposit_Amount_withWithdraw(int n, int option)
 	while(!File.eof() && found==false)
 	{
 		File.read(reinterpret_cast<char *> (&ac), sizeof(account));
-		if(ac.Return_Account_Number()==n)
-		{
+		
+		
 			ac.Display_account();
 			if(option==1)
 			{
@@ -339,7 +339,7 @@ void Deposit_Amount_withWithdraw(int n, int option)
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
 			cout<<"\n\t\t Record Updated";
 			found=true;
-	       }
+	       
          }
 	File.close();
 	if(found==false)

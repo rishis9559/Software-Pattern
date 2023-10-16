@@ -2,8 +2,6 @@
 #include<fstream>
 #include<cctype>
 #include<iomanip>
-#include<string.h>
-#include<stdio.h>
 using namespace std;
  
 // CLASS USED IN PROJECT
@@ -11,7 +9,7 @@ using namespace std;
 class account
 {
 	int Account_No;
-	std::str Account_Holder_Name[44];
+	char Account_Holder_Name[44];
 	char type;
 	int Deposit_Amount;
 public:
@@ -190,7 +188,7 @@ void display_sp(int n)
 		cout<<"File could not be open !! Press any Key...";
 		return;
 	}
-	cout<<"\nBALANCE DETAILS"<end1;
+	cout<<"\nBALANCE DETAILS\n";
  
     	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account)))
 	{
@@ -228,10 +226,6 @@ void Update_account(int n)
 			cout<<"\nPlease! Enter The New Details of account"<<endl;
 			ac.Update();
 			int pos=(-1)*static_cast<int>(sizeof(account));
-			std::size_t size;
-			if (stream.read(reinterpret_cast<char*>(&size), sizeof(size_t)))
-    				return size;
-			return 0;
 			File.seekp(pos,ios::cur);
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
 			cout<<"\n\t\t Record Updated";
@@ -313,8 +307,8 @@ void Deposit_Amount_withWithdraw(int n, int option)
 	while(!File.eof() && found==false)
 	{
 		File.read(reinterpret_cast<char *> (&ac), sizeof(account));
-		
-		
+		if(ac.Return_Account_Number()==n)
+		{
 			ac.Display_account();
 			if(option==1)
 			{
@@ -339,7 +333,7 @@ void Deposit_Amount_withWithdraw(int n, int option)
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
 			cout<<"\n\t\t Record Updated";
 			found=true;
-	       
+	       }
          }
 	File.close();
 	if(found==false)
